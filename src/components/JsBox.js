@@ -25,7 +25,7 @@ function JavaScriptBox({jsCode,id}) {
     <div className='border'>
       <pre style={{margin:'0'}}>
         <h3 className='text-center'>JavaScript Code</h3>
-        <code ref={codeRef} className="javascript" style={{height:'75vh'}}>
+        <code ref={codeRef} className="javascript">
           {jsCode}
         </code>
       </pre>

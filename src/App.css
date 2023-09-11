@@ -9,18 +9,23 @@ body {
   display: grid;
   grid-template-columns: 18% 40% 40%;
 }
+.theme-phone {
+  display: grid;
+  grid-template-columns: 50% 50%;
+}
 
 @media screen and (max-width: 768px) {
   /* CSS rules for screens with a width up to 768px */
   body {
     font-size: 14px;
   }
+ 
   /* Add more CSS rules as needed */
 }
 .history {
   text-align: center;
   background-color: rgb(26, 26, 26);
-  min-height: 86vh;
+  min-height: 76vh;
   border:2px solid rgb(104, 103, 103);
   border-radius: 10px;
   margin: 1%;
@@ -128,9 +133,11 @@ button:hover {
 /* Media query for smaller screens */
 @media screen and (max-width: 768px) {
   button {
-    font-size: smaller; /* Adjust the font size for smaller screens */
-    min-width: 50%; /* Make buttons take up 50% of the width */
+    font-size:xx-small; /* Adjust the font size for smaller screens */
+    min-width: 25%; /* Make buttons take up 50% of the width */
   }
+  
+
 }
 
 .flex-buttons {
@@ -150,4 +157,9 @@ button:hover {
     max-width: 20vh;
     box-shadow: 1px 2px 2px rgb(124, 124, 124);
   
+}
+
+.javascript{
+  height: 47vh;
+
 }
