@@ -5,19 +5,20 @@ body {
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
-.theme {
-  display: grid;
-  grid-template-columns: 18% 40% 40%;
-}
-.theme-phone {
-  display: grid;
-  grid-template-columns: 50% 50%;
-}
+
 
 @media screen and (max-width: 768px) {
   /* CSS rules for screens with a width up to 768px */
   body {
     font-size: 14px;
+  }
+  .theme {
+    display: grid;
+    grid-template-rows: 18% 40% 40%;
+  }
+  .theme-phone {
+    display: grid;
+    grid-template-rows: 50% 50%;
   }
  
   /* Add more CSS rules as needed */
@@ -58,6 +59,7 @@ nav {
   text-align: center;
 
 }
+
 .text-center{
   text-align: center;
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
@@ -160,6 +162,65 @@ button:hover {
 }
 
 .javascript{
-  height: 47vh;
+  height: 60vh;
 
+}
+
+.floating-history {
+  position: fixed; /* Set the element as a fixed position */
+  top: 0; /* Position it at the top of the viewport */
+  left: 56; /* Position it at the left of the viewport */
+  width: 20vh; /* Make it full-width */
+  height: 10vh; /* Make it full-height */
+  background-color: rgba(0, 0, 0, 0.5); /* Add a semi-transparent background */
+  z-index: 1000; /* Set a high z-index to ensure it's on top of other elements */
+  overflow: auto; /* Add scrollbars if content overflows */
+  display: flex;
+  justify-content: center;
+  
+}
+
+@media screen and (min-width: 1000px) {
+  /* CSS rules for screens with a width up to 768px */
+  body {
+    font-size: 14px;
+  }
+  .theme {
+    display: grid;
+    grid-template-columns: 18% 40% 40%;
+  }
+  .theme-phone {
+    display: grid;
+    grid-template-columns: 50% 50%;
+  }
+ 
+  /* Add more CSS rules as needed */
+}
+.history {
+  /* ... existing styles ... */
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+  transform: translateY(-100%);
+  opacity: 0;
+}
+
+.history.open {
+  transform: translateY(0);
+  opacity: 1;
+}
+.x-button {
+  transition: background-color 0.4s;
+  background-color: rgb(49, 47, 47);
+  border-radius: 7px;
+  font-size: larger;
+  padding: 1%;
+  margin-left: 1%;
+  margin-top: 3%;
+  border: 0.3px solid black;
+  width: 3vh;
+  max-height: 2vh;
+  box-shadow: 1px 2px 2px rgb(124, 124, 124);
+}
+
+.x-button:hover {
+  background-color: rgb(127, 126, 126);
 }

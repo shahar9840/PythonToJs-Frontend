@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 import '../App.css'
 
 
-function History({id,name,handelHistory,histories,setIsHistoryOpen}) {
+function History({id,name,handelHistory,histories,setIsHistoryOpen,isHistoryOpen}) {
 
    React.useEffect(()=>{
     handelHistory()
@@ -13,8 +13,10 @@ function History({id,name,handelHistory,histories,setIsHistoryOpen}) {
     
     
   return (
-    <div className="history">
-      <div><h3 className='text-center' style={{padding:'5%'}}>History</h3> 
+    <div  className={`history floating-history ${isHistoryOpen ? 'open' : ''}`}>
+     <div onClick={()=>{
+                setIsHistoryOpen(false)
+               }}  className='x-button' >X</div> <div> <h3 className='text-center ' >History</h3>
        {
             histories.slice().reverse().map((history)=>(
                <Link  key={history.id} className='link-css' to={`/code/${history.id}`} onClick={()=>{
@@ -32,3 +34,4 @@ function History({id,name,handelHistory,histories,setIsHistoryOpen}) {
 }
 
 export default History
+

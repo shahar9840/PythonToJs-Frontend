@@ -4,10 +4,11 @@ import Login from "./components/Login";
 import React from "react";
 import Main from "./Main";
 import axios from "axios";
+import History from "./components/History";
 
 function App() {
   const [name, setName] = React.useState("");
-  const [isHistoryOpen, setIsHistoryOpen] = React.useState(false);
+
   const [isHistoryButtonVisible, setIsHistoryButtonVisible] =
     React.useState(true);
   const token = localStorage.getItem("token");
@@ -18,6 +19,7 @@ function App() {
   const loggedIn = localStorage.getItem("loggedIn");
   const [checkAuth, setCheckAuth] = React.useState("");
   const [code, setCode] = React.useState("");
+  const [isHistoryOpen, setIsHistoryOpen] = React.useState(false);
 
   React.useEffect(() => {
     // Check if the token is valid
@@ -29,7 +31,7 @@ function App() {
   }, [token, navigate]);
 
   function historyButton() {
-    setIsHistoryOpen(!isHistoryOpen);
+    setIsHistoryOpen((prevState) => !prevState);
   }
 
   function isTokenExpired() {
@@ -127,8 +129,8 @@ function App() {
           element={
             <Main
               setIsHistoryButtonVisible={setIsHistoryButtonVisible}
-              isHistoryOpen={isHistoryOpen}
-              setIsHistoryOpen={setIsHistoryOpen}
+  
+              
               isHistoryButtonVisible={isHistoryButtonVisible}
               name={name}
               handelHistory={handelHistory}
@@ -148,8 +150,7 @@ function App() {
           element={
             <Main
               setIsHistoryButtonVisible={setIsHistoryButtonVisible}
-              isHistoryOpen={isHistoryOpen}
-              setIsHistoryOpen={setIsHistoryOpen}
+              
               isHistoryButtonVisible={isHistoryButtonVisible}
               name={name}
               handelHistory={handelHistory}
@@ -165,6 +166,15 @@ function App() {
           }
         />
       </Routes>
+         <History
+        id={params.id}
+        name={name}
+        handelHistory={handelHistory}
+        histories={histories}
+        setIsHistoryOpen={setIsHistoryOpen}
+        isHistoryOpen={isHistoryOpen}
+        
+      />
     </div>
   );
 }

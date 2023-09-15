@@ -17,6 +17,7 @@ function Main({
   refreshToken,
   checkAuth,
   name,
+  updateCode,
   handelHistory,
   token,
   histories,
@@ -66,7 +67,6 @@ function Main({
         console.log("Code Block created:", response.data["message"]);
         navigate(`/code/${response.data["id"]}`);
         handelHistory();
-        setIsHistoryOpen(true)
       })
       .catch((error) => {
         console.error("Error creating code block:", error);
@@ -87,9 +87,9 @@ function Main({
       .then((response) => {
         console.log(response.data.message);
         handelHistory();
-        navigate('/')
-        setIsHistoryOpen(true)
-        updateCode()
+        navigate("/");
+        setIsHistoryOpen(true);
+        updateCode();
       })
       .catch((error) => {
         console.error("Error deleting code block:", error);
@@ -135,50 +135,14 @@ function Main({
             error.response ? error.response.status : null
           );
         });
-    }else{
-      setCode('')
+    } else {
+      setCode("");
     }
   }
 
   return (
     <div>
-      {isHistoryOpen ? (
-        <div className="theme">
-          <div>
-            {/* Render History as a button on small screens */}
-            {/* Render History as a full component if it's open or on larger screens */}
-            {(isHistoryOpen || !isHistoryButtonVisible) && (
-              <History
-                id={params.id}
-                name={name}
-                histories={histories}
-                handelHistory={handelHistory}
-                setIsHistoryOpen={setIsHistoryOpen}
-              />
-            )}
-          </div>
-          <div>
-            <PythonBox
-              token={token}
-              key={params.id}
-              code={code}
-              setCode={setCode}
-              deleteCodeBlock={deleteCodeBlock}
-              id={params.id}
-              fetchCodeBlock={fetchCodeBlock}
-              createCodeBlock={createCodeBlock}
-              updateCode={updateCode}
-            />
-          </div>
-          <div>
-            <JavaScriptBox
-              jsCode={jsCode}
-              setJsCode={setJsCode}
-              id={params.id}
-            />
-          </div>
-        </div>
-      ) : (
+      
         <div className="theme-phone">
           <div>
             <PythonBox
@@ -201,7 +165,8 @@ function Main({
             />
           </div>
         </div>
-      )}
+      )
+      
     </div>
   );
 }
