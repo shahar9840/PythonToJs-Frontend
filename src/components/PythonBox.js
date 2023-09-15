@@ -33,7 +33,7 @@ function PythonBox({
 
   return (
     <div>
-      <div className="border">
+      {id? <div className="border">
         <div>
           {" "}
           <h3 className="text-center"> Enter Code Here </h3>
@@ -49,20 +49,16 @@ function PythonBox({
             options={{ paddingTop: "7%" }}
           />
         </div>
-      </div>
-      {
-        id?
-      <div className="flex-buttons ">
-        <button onClick={createCodeBlock}>Create New </button>
-        <button onClick={deleteCodeBlock} className="delete-button">
-          Delete Block
-        </button>
-        <button onClick={updateCode}>Convert</button>
       </div>:<div className="flex-buttons ">
         <button onClick={createCodeBlock}>Create New </button>
-
-      </div>
-      }
+        
+      </div>}{id?<div className="flex-buttons "><button onClick={deleteCodeBlock} className="delete-button">
+          Delete Block
+        </button><button onClick={createCodeBlock}>Create New </button>
+        <button onClick={updateCode}>Convert</button></div>:<div></div>}
+      
+      
+      
     </div>
   );
 }

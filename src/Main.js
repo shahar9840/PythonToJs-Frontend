@@ -57,6 +57,8 @@ function Main({
   //   }, [params.id]);
 
   const createCodeBlock = () => {
+   
+   try{
     axios
       .post(
         `https://convertor-back.politeriver-e73a6e59.westeurope.azurecontainerapps.io/history`,
@@ -71,6 +73,9 @@ function Main({
       .catch((error) => {
         console.error("Error creating code block:", error);
       });
+   } catch(error) {
+    console.error("Error fetching code block:", error);
+  }
   };
   const deleteCodeBlock = () => {
     axios
@@ -136,7 +141,8 @@ function Main({
           );
         });
     } else {
-      setCode("");
+      createCodeBlock();
+      
     }
   }
 

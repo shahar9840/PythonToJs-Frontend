@@ -130,7 +130,7 @@ function App() {
             <Main
               setIsHistoryButtonVisible={setIsHistoryButtonVisible}
   
-              
+              setIsHistoryOpen={setIsHistoryOpen}
               isHistoryButtonVisible={isHistoryButtonVisible}
               name={name}
               handelHistory={handelHistory}
@@ -150,7 +150,7 @@ function App() {
           element={
             <Main
               setIsHistoryButtonVisible={setIsHistoryButtonVisible}
-              
+              setIsHistoryOpen={setIsHistoryOpen}
               isHistoryButtonVisible={isHistoryButtonVisible}
               name={name}
               handelHistory={handelHistory}
